@@ -21,16 +21,15 @@
 using namespace std;
 
 void solve()
-{ll w1,w2,x1,x2,m,z;
-cin>>w1>>w2>>x1>>x2>>m;
-z=(w2-w1)/m;
-if((z>=x1)&&(z<=x2))
-
 {
-    cout<<1<<endl;
-}
-else{
-cout<<0<<endl;}
+  ll x,y,z,l;
+  cin>>x>>y;
+  if((x<=y)&&(y<=(x+200)))
+  {
+      cout<<"Yes"<<endl;
+
+  }
+ else cout<<"No"
 }
 
 
