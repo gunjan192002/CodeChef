@@ -21,24 +21,35 @@
 using namespace std;
 
 void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
-
+{
+     ll a,b,c,d;
+     ll e,f,g,h;
+     cin>>a>>b>>c>>d;
+     cin>>e>>f>>g>>h;
+     int btx=max(a,e);
+     int upx=min(c,g);
+     int bty=max(b,f);
+     int upy=min(d,h);
+     int subtract =0;
+     if((btx<upx)&&(bty<upy))
+     {
+         subtract=(upx-btx)*(upy-bty);
+     }
+    int area1=(c-a)*(d-b);
+    int area2=(g-e)*(h-f);
+    cout<<area1+area2-subtract<<endl;
 }
 
 
 int32_t main()
 {
-   fast
-   //cooldude69.
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

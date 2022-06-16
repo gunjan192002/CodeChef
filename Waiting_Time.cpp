@@ -21,24 +21,22 @@
 using namespace std;
 
 void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
-
+{
+    ll x,y;
+    cin>>x>>y;
+    cout<<x*7-y<<endl;
 }
 
 
 int32_t main()
 {
-   fast
-   //cooldude69.
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

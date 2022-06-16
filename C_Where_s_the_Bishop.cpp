@@ -20,25 +20,37 @@
 
 using namespace std;
 
+char tmp;
+
 void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
+{
 
+     char arr[8][8];
+     for(int i = 0; i < 8; i++){
+         for(int j = 0; j < 8; j++){
+             cin >> arr[i][j];
+         }
+     }
+     for(int i = 0; i < 8; i++){
+         for(int j = 0; j < 6; j++){
+             if(arr[i][j] == '#' && arr[i][j+2] == '#'){
+                 cout << i + 2 << ' ' << j + 2 << '\n';
+                 return;
+             }
+         }
+     }
 }
-
-
 int32_t main()
 {
-   fast
-   //cooldude69.
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    
+    while(t--)
+    {
+    cin.ignore();
+    solve();
+    }
+    return 0;
 }

@@ -21,12 +21,28 @@
 using namespace std;
 
 void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
+{  ll n,z=0;
+   cin>>n;
 
+    unordered_map<int,int>mp;
+   rep(i,n)
+   {
+      int x;
+      cin>>x;
+      mp[x]++;
+   }
+   for(auto x:mp)
+   {
+      if(x.second>1)
+      z=z+(x.second -1);   
+   }
+   if((z&1)==1)
+   {
+      cout<<n-z-1<<endl;
+   }
+   else 
+   cout<<n-z<<endl;
+   
 }
 
 

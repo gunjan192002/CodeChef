@@ -21,24 +21,45 @@
 using namespace std;
 
 void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
+{
+    string n,s;
+    int k;
+    cin>>k;
+    cin>>n;
+    for(int i=0;i<n.size();i=i+2)
+    {  
+        if((n[i]=='0')&&(n[1+i]=='0'))
+    {
+       s.push_back('A');
+    }
+     else if((n[i]=='0')&&(n[i+1]=='1'))
+    {
+       s.push_back('T');
+    }
+    else  if((n[i]=='1')&&(n[i+1]=='0'))
+    {
+       s.push_back('C');
+    }
+     else  if((n[i]=='1')&&(n[i+1]=='1'))
+    {
+       s.push_back('G');
+    }
+
+    }
+    cout<<s<<endl;
 
 }
 
 
 int32_t main()
 {
-   fast
-   //cooldude69.
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

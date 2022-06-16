@@ -19,30 +19,37 @@
 #define vi vector<int>
 
 using namespace std;
-    const int N=1e5+10;
- vector<int>v; 
- void lis(int ar[],int n,int count)
- {  
-     if(ar[n-1]>=ar[n-2])
-     {
-         lis(ar[],n-1,count++);
-     }
+ const int N=1e5+10;
+ vector<int>ar(N); 
+ int lis(int i)
+ { 
+     int  ans=1;
+    for(int j=i-1;j>=0;j++) 
+    {
+        if(ar[j]<ar[i])
+        {
+            ans++;
+        }
+        else 
+        continue ;
+    }
+    return ans ;
  }
 
 void solve()
 {
     int n,x,y,z=0;//z=count
     cin>>n;
-    int ar[n];
     rep(i,n)
     {
         cin>>ar[i];
     }
-    lis(ar,n,z);
-    sort(v.begin(),v.end());
-    auto i=v.end()-1;
-    cout<<*i<<endl;
-    
+    for(int i=0;i<n;i++)
+    {
+        z=max(z,lis(i));
+    }
+    cout<<z<<endl;
+  
 }
 
 

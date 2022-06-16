@@ -24,7 +24,30 @@ void solve()
 {
     ll n,x,y,z;
     cin>>n;
-    
+    vector<ll>v;
+    if(n<=2)
+    {
+        cout<<"NO"<<endl;
+    }
+    else 
+     {       cout<<"YES"<<endl;
+
+
+    for(ll i=1;i<=(n/2);i++)
+    {
+        v.push_back(i);
+    }
+    for(ll i=n;i>=((n/2)+1);i--)
+    {
+                v.push_back(i);
+
+    }
+    for(ll i=0;i<n;i++)    
+    {
+        cout<<v[i]<<" ";
+    }
+    cout<<endl;
+     }
 }
 
 

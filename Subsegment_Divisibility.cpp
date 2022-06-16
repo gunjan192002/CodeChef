@@ -20,25 +20,44 @@
 
 using namespace std;
 
-void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
 
+
+void solve()
+{
+    int n;
+    cin>>n;
+    if(n==3)
+    {
+        cout<<7<<" "<<2<<" "<<5<<endl;
+        return;
+    }
+    int f = n/3;
+    n=n%3;
+    int i=7;
+   
+    for(i=7;i<=(7+9*(f-1));i+=9)
+    {
+        cout<<i<<" "<<i-5<<" "<<i-2<<" ";
+    }
+    if(n==0)
+    cout<<endl;
+    if(n==1)
+    cout<<i<<endl;
+    else if(n==2)
+    cout<<i<<" "<<i-5<<endl;
+    
 }
 
 
 int32_t main()
 {
-   fast
-   //cooldude69.
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }
