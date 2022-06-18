@@ -22,10 +22,33 @@ using namespace std;
 
 void solve()
 {
-    ll k,l,m;
+    ll k,l,m,r,q,n,x;
+    cin>>n;
+    ll ar[n],a[n];
+    rep(i,n)
+    {
+        cin>>ar[i];
+    }
+    cin>>q;
+    ll qr[q][3];
+    rep(i,q)
+    {
+        cin>>qr[i][0];
+                cin>>qr[i][1];
+                        cin>>qr[i][2];
+    }
+    rep(i,q)
+    {     int  count=0;
+         for(int i=qr[i][0];i<=qr[i][1];i++) 
+         {
+            if((ar[i]^qr[i][2])>(ar[i]&qr[i][2]))
+            {
+             count++;   
+            }
+         }
+         cout<<count<<endl;
+}
     
-
-
 }
 
 
