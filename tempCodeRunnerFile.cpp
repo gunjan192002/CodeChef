@@ -1,68 +1,74 @@
-/* A Naive C++ recursive implementation of LIS problem */
-#include <iostream>
+#include <bits/stdc++.h>
+
+//F047_gunjan_agrawal
+//gunjan agrawal
+#define pi (3.141592653589)
+#define M 1e9+7
+#define ll long long int
+#define pb push_back
+#define mp make_pair
+#define all(x) x.begin(), x.end()
+#define f first
+#define s second
+#define rrep(i, n) for(int i=n-1;i>=0;i--)
+#define rep(i,n) for(int i=0;i<n;i++)
+#define repj(j,n) for(int j=0;j<n;j++)
+#define fast ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+#define ps(x,y) fixed<<setprecision(y)<<x
+#define pii pair<int,int>
+#define vi vector<int>
+
 using namespace std;
 
-/* To make use of recursive calls, this function must return
-two things:
-1) Length of LIS ending with element arr[n-1]. We use
-	max_ending_here for this purpose
-2) Overall maximum as the LIS may end with an element
-	before arr[n-1] max_ref is used this purpose.
-The value of LIS of full array of size n is stored in
-*max_ref which is our final result */
-int _lis(int arr[], int n, int* max_ref)
+int findGCD(int arr[], int n,int x)
 {
-	
-	/* Base case */
-	if (n == 1)
-		return 1;
-
-	// 'max_ending_here' is length of LIS ending with arr[n-1]
-	int res, max_ending_here = 1;
-
-	/* Recursively get all LIS ending with arr[0], arr[1] ...
-	arr[n-2]. If arr[i-1] is smaller than arr[n-1], and
-	max ending with arr[n-1] needs to be updated, then
-	update it */
-	for(int i = 1; i < n; i++)
-	{
-		res = _lis(arr, i, max_ref);
-		if (arr[i - 1] <= arr[n - 1] &&
-			res + 1 > max_ending_here)
-			max_ending_here = res + 1;
-	}
-
-	// Compare max_ending_here with the overall max. And
-	// update the overall max if needed
-	if (*max_ref < max_ending_here)
-		*max_ref = max_ending_here;
-
-	// Return length of LIS ending with arr[n-1]
-	return max_ending_here;
+    int result = arr[x];
+    for (int i = x+1; i < n; i++)
+    {
+        result = __gcd(arr[i], result);
+  
+        if(result == 1)
+        {
+           return 1;
+        }
+    }
+    return result;
 }
 
-// The wrapper function for _lis()
-int lis(int arr[], int n)
+void solve()
 {
-	
-	// The max variable holds the result
-	int max = 1;
-
-	// The function _lis() stores its result in max
-	_lis(arr, n, &max);
-
-	// returns max
-	return max;
+int n ;
+cin >> n ;
+int a[n];
+rep(i,n){
+    cin >> a[i];
+}
+    int count =0 ;
+    if(findGCD(a,n,0)== 1)
+    cout << 0 << endl;
+    else {
+    rep(i,n){
+     if(__gcd(findGCD(a,i,0),findGCD(a,n,i+1))!=1 )
+      count ++;
+    }
+    cout << count << endl;
+    }
+    
 }
 
-// Driver code
-int main()
-{
-	int arr[] = { 22, 22,22, 33, 21, 50, 41, 60 };
-	int n = sizeof(arr) / sizeof(arr[0]);
-	
-	cout << "Length of lis is " << lis(arr, n) << "\n";
-	return 0;
-}
 
-// This code is contributed by Shubhamsingh10
+
+
+
+int32_t main()
+{
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
+}

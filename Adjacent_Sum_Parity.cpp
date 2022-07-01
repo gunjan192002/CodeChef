@@ -21,37 +21,43 @@
 using namespace std;
 
 void solve()
-{ 
-    int n,k,x=0,y=1,z;
-    cin>>n;
-    int ar[n],temp[n];
-    rep(i,n)
-    {
-        cin>>ar[i];
-        temp[i]=ar[i];
+{
+ ll n,o,e=0,op=0;
+ cin>>n;
+ vector<ll>even;
+    rep(i,2*n)
+    { ll x;
+        cin>>x;
+        if(x%2==0)
+        {
+          even.push_back(x);
+        }
     }
-    if(n==1)
+    e=even.size();
+    o=(2*n) -e;
+    if(o>=e)
     {
-    cout<<-1<<endl;return;
+        cout<<(o-e)/2<<endl;
     }
-    sort(temp,temp+n);
-    rep(i,n)
-    {  if(ar[i]!=temp[i]){continue;}
+    else 
+    {    
+        ll ar[o];
+        for(int i=0;i<o;i++){
+          ar[i]=0;
+        do{
+            ar[i]++;
+        }while(even[i]%2!=0);
 
-         if((i==n-1)&&(temp[n-1]==ar[n-1]))
-    {
-        swap(temp[n-1],temp[n-2]);
-    }
+        }
+        sort(ar,o+ar);
+        rep(i,(o-e)/2)
+        {
+          op=ar[i]+op;
+        }
+        cout<<op<<endl;
         
-        if(ar[i]==temp[i]){swap(temp[i],temp[i+1]);}
-    }
-   for(auto x:temp)
-   {
-    cout<<x<<" ";
-   }
-   cout<<endl;
 }
-
+}
 
 int32_t main()
 {

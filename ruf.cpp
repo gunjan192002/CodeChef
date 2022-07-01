@@ -21,24 +21,46 @@
 using namespace std;
 
 void solve()
-{  string s,c;
-   cin>>s;
-  string  temp=s;
-    reverse(s.begin(), s.end());
-    cout<<temp+s<<endl;
+{
+ ll n,o,e=0,op=0;
+ cin>>n;
+ vector<ll>even;
+    rep(i,2*n)
+    { ll x;
+        cin>>x;
+        if(x%2==0)
+        {
+          even.push_back(x);
+        }
+    }
+    e=even.size();
+    o=(2*n) -e;
+    if(o>=e)
+    {
+        cout<<(o-e)/2<<endl;
+    }
+    else 
+    {    
+        
+        for(int i=0;i<o;i++){
+        do{
+            
+        }while(even[i]%2!=0);
 
+        }
+        cout<<op<<endl;
 }
-
+}
 
 int32_t main()
 {
-   fast
-   //cooldude69.
-   int t;
-   cin>>t;
-   while(t--)
-   {
-   solve();
-   }
-   return 0;
+    fast
+    //cooldude69.
+    int t;
+    cin>>t;
+    while(t--)
+    {
+    solve();
+    }
+    return 0;
 }

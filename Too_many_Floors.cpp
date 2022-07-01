@@ -21,35 +21,30 @@
 using namespace std;
 
 void solve()
-{ 
-    int n,k,x=0,y=1,z;
-    cin>>n;
-    int ar[n],temp[n];
-    rep(i,n)
-    {
-        cin>>ar[i];
-        temp[i]=ar[i];
-    }
-    if(n==1)
-    {
-    cout<<-1<<endl;return;
-    }
-    sort(temp,temp+n);
-    rep(i,n)
-    {  if(ar[i]!=temp[i]){continue;}
+{
+   
+   ll l,m;
 
-         if((i==n-1)&&(temp[n-1]==ar[n-1]))
+    cin>>l>>m;
+    ll a=0,b=0;
+    if(l%10==0) 
     {
-        swap(temp[n-1],temp[n-2]);
+        a=l/10;
     }
-        
-        if(ar[i]==temp[i]){swap(temp[i],temp[i+1]);}
+    else 
+    {
+        a=l/10+1;
     }
-   for(auto x:temp)
-   {
-    cout<<x<<" ";
-   }
-   cout<<endl;
+    if(m%10==0) 
+    {
+        b=m/10;
+    }
+    else 
+    //gunjan agrawal
+    {
+        b=m/10+1;
+    }
+    cout<<abs(a-b)<<endl
 }
 
 
